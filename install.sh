@@ -24,6 +24,7 @@ else
   echo "if [ -f ~/.bash_profile ]; then source ~/.bash_profile; fi" >> ~/.bashrc
 fi
 
+replacify profile/fonts.conf ~/.config/fontconfig/fonts.conf
 replacify profile/bash_profile ~/.bash_profile
 replacify profile/vimrc ~/.vimrc
 replacify profile/gitconfig ~/.gitconfig
