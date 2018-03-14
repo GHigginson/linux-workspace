@@ -24,9 +24,24 @@ else
   echo "if [ -f ~/.bash_profile ]; then source ~/.bash_profile; fi" >> ~/.bashrc
 fi
 
+echo "#"
+echo "# Creating simlinks to profile data"
+echo "#"
 replacify profile/fonts.conf ~/.config/fontconfig/fonts.conf
 replacify profile/bash_profile ~/.bash_profile
 replacify profile/vimrc ~/.vimrc
 replacify profile/gitconfig ~/.gitconfig
 replacify profile/atom/config.cson ~/.atom/config.cson
 replacify bin ~/bin 
+
+cd ~/bin
+
+echo "#"
+echo "# Installing Javascript Dependencies"
+echo "#"
+npm install
+
+echo "#"
+echo "# Installing Python Dependencies"
+echo "#"
+sudo pip3 install -r ~/bin/requirements.txt

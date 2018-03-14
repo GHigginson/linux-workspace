@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+import json
+import sys
+from xml.etree.ElementTree import fromstring
+from xmljson import BadgerFish
+from collections import OrderedDict
+
+def xml_to_dict(xml):
+    parser = BadgerFish(xml_tostring=str, dict_type=OrderedDict)
+    return parser.data(fromstring(xml))
+
+def pretty_print(o):
+    print(json.dumps(o, indent=4, separators=(',', ': ')))
+
+def read_xml(fname):
+    with open(fname, "rt") as f:
+        return f.read()
+
+if len(sys.argv) != 2:
+    print("Usage: xml2json <xml-file>")
+    exit(1)
+
+xml = read_xml(sys.argv[1])
+pretty_print(xml_to_dict(xml))
