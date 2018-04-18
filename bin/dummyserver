@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 if (process.argv.length != 3) {
-  console.log("Usage: echoserver <port>");
+  console.log("Usage: dummyserver <port>");
   process.exit();
 }
 var PORT = parseInt(process.argv[2]);
