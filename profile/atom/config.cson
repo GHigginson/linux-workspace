@@ -5,7 +5,8 @@
       "one-light-syntax"
     ]
   editor:
-    fontSize: 10
+    fontSize: 11
+    invisibles: {}
     preferredLineLength: 120
     tabType: "soft"
   "exception-reporting":
