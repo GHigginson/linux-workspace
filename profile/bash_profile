@@ -25,6 +25,7 @@ alias path="echo \$PATH | tr ':' '\\n' | sort"
 cdd () { cd "$1"; ls; }
 cdf () { if [ ! -d "$1" ]; then mkdir -p "$1"; fi; cdd "$1"; }
 dum () { if [ ! $1 ]; then du -m --max-depth=0 *; else du -m --max-depth=0 $1; fi }
+psmem () { ps -eo size,pid,user,command --sort -size | awk '{ hr=$1/1024 ; printf("%13.2f Mb ",hr) } { for ( x=4 ; x<=NF ; x++ ) { printf("%s ",$x) } print "" }'; }
 settitle () { echo -ne "\e]2;$@\a\e]1;$@\a"; }
 
 # Colors Constants
