@@ -4,9 +4,10 @@ if (process.argv.length != 3) {
   console.log("Usage: dummywebserver <port>");
   process.exit();
 }
-var PORT = parseInt(process.argv[2]);
 
-var requestHandler = function(request, response) {
+const PORT = parseInt(process.argv[2]);
+
+const requestHandler = (request, response) => {
   console.log(request.method + " " + request.url);
   console.log(request.headers);
   request.on('data', (chunk) => console.log(chunk.toString()));
@@ -16,7 +17,7 @@ var requestHandler = function(request, response) {
   response.end();
 }
 
-require('http').createServer(requestHandler).listen(PORT, function () {
+require('http').createServer(requestHandler).listen(PORT, () => {
   console.log('listening...');
   console.log('------------------------------------');
 });
